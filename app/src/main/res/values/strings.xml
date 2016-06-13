@@ -10,4 +10,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_toolbar_enter_always">ToolbarEnterAlwaysActivity</string>
+    <string name="title_activity_toolbar_exit_until_collapsed">ToolbarExitUntilCollapsedActivity
+    </string>
 </resources>

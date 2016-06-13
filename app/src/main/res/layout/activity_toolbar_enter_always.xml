@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.fanyafeng.materialdesign.activity.TabLayoutActivity">
+    tools:context="com.fanyafeng.materialdesign.activity.ToolbarEnterAlwaysActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -19,19 +19,10 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-        <!-- app:tabMode="fixed" app:tabGravity="fill" 水平平均铺满-->
-        <!-- app:tabMode="center" app:tabGravity="fill" 水平居中铺满-->
-        <android.support.design.widget.TabLayout
-            android:id="@+id/layoutTab"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:tabGravity="fill"
-            app:tabIndicatorColor="#0ddcff"
-            app:tabMode="fixed" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_tab_layout" />
+    <include layout="@layout/content_toolbar_enter_always" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"

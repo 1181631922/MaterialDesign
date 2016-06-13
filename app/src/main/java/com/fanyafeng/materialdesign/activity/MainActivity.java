@@ -61,6 +61,12 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestTabLayout:
                 startActivity(new Intent(this, TabLayoutActivity.class));
                 break;
+            case R.id.btnTestToolbarEnter:
+                startActivity(new Intent(this, ToolbarEnterAlwaysActivity.class));
+                break;
+            case R.id.btnTestToolbarExit:
+                startActivity(new Intent(this, ToolbarExitUntilCollapsedActivity.class));
+                break;
         }
     }
 }
