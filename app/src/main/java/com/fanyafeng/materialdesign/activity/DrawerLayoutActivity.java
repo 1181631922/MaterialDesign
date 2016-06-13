@@ -1,6 +1,5 @@
 package com.fanyafeng.materialdesign.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -11,12 +10,14 @@ import android.view.View;
 import com.fanyafeng.materialdesign.BaseActivity;
 import com.fanyafeng.materialdesign.R;
 
-public class MainActivity extends BaseActivity {
+public class DrawerLayoutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_drawer_layout);
+
+        title = "测试抽屉效果";
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -26,10 +27,6 @@ public class MainActivity extends BaseActivity {
                         .setAction("Action", null).show();
             }
         });
-
-        title = "测试基类";
-        isSetNavigationIcon = false;
-
         initView();
         initData();
     }
@@ -42,22 +39,4 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()) {
-            case R.id.btnSnackbar:
-                startActivity(new Intent(this, SnackBarActivity.class));
-                break;
-            case R.id.btnTestFloat:
-                startActivity(new Intent(this, FloatingActionButtonActivity.class));
-                break;
-            case R.id.btnTestEditText:
-                startActivity(new Intent(this, EditTextFloatingLabelActivity.class));
-                break;
-            case R.id.btnTestDrawer:
-                startActivity(new Intent(this, DrawerLayoutActivity.class));
-                break;
-        }
-    }
 }

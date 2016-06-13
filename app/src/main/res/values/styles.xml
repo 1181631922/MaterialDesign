@@ -5,7 +5,8 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <!--控制键盘,光标颜色-->
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

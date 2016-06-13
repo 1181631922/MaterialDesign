@@ -25,6 +25,14 @@
         <activity
             android:name=".activity.FloatingActionButtonActivity"
             android:label="@string/title_activity_floating_action_button"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.EditTextFloatingLabelActivity"
+            android:label="@string/title_activity_edit_text_floating_label"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.DrawerLayoutActivity"
+            android:label="@string/title_activity_drawer_layout"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

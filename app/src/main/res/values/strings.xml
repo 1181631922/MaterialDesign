@@ -4,4 +4,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_snack_bar">SnackBarActivity</string>
     <string name="title_activity_floating_action_button">FloatingActionButtonActivity</string>
+    <string name="title_activity_edit_text_floating_label">EditTextFloatingLabelActivity</string>
+    <string name="title_activity_drawer_layout">DrawerLayoutActivity</string>
 </resources>
