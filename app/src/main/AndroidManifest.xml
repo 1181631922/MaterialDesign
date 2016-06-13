@@ -21,6 +21,10 @@
         <activity
             android:name=".activity.SnackBarActivity"
             android:label="@string/title_activity_snack_bar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.FloatingActionButtonActivity"
+            android:label="@string/title_activity_floating_action_button"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -66,7 +66,8 @@ public class SnackBarActivity extends BaseActivity {
                         }).setActionTextColor(getResources().getColor(R.color.colorPrimary)).show();
                 break;
             case R.id.btnCustomSnackbar:
-                snackbar = Snackbar.make(v, "提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息", Snackbar.LENGTH_LONG);
+                // TODO: 16/6/13 有坑,小心使用
+                snackbar = Snackbar.make(getWindow().getDecorView(), "提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息提示用户的消息", Snackbar.LENGTH_LONG);
                 snackbar.setAction("Confirm", new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
