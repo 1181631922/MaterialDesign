@@ -6,4 +6,8 @@
     <string name="title_activity_floating_action_button">FloatingActionButtonActivity</string>
     <string name="title_activity_edit_text_floating_label">EditTextFloatingLabelActivity</string>
     <string name="title_activity_drawer_layout">DrawerLayoutActivity</string>
+    <string name="title_activity_tab_layout">TabLayoutActivity</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

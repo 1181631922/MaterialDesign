@@ -33,6 +33,10 @@
         <activity
             android:name=".activity.DrawerLayoutActivity"
             android:label="@string/title_activity_drawer_layout"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.TabLayoutActivity"
+            android:label="@string/title_activity_tab_layout"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

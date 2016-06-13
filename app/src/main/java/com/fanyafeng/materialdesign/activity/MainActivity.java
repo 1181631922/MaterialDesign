@@ -58,6 +58,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestDrawer:
                 startActivity(new Intent(this, DrawerLayoutActivity.class));
                 break;
+            case R.id.btnTestTabLayout:
+                startActivity(new Intent(this, TabLayoutActivity.class));
+                break;
         }
     }
 }
