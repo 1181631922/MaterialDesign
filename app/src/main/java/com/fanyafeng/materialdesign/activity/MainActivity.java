@@ -67,6 +67,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestToolbarExit:
                 startActivity(new Intent(this, ToolbarExitUntilCollapsedActivity.class));
                 break;
+            case R.id.btnTestStagger:
+                startActivity(new Intent(this, StaggeredGridLayoutActivity.class));
+                break;
         }
     }
 }

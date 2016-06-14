@@ -42,7 +42,7 @@ public class RVAdapter extends BaseRecyclerAdapter<RVAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, int position, boolean isItem) {
 //        holder.sdvRvItem.setImageURI(Uri.parse(stringList.get(position)));
 //        holder.sdvRvItem.set
-        ControllerListenerUtil.setControllerListener(holder.sdvRvItem, stringList.get(position), MyUtils.getScreenWidth(context), context);
+        ControllerListenerUtil.setControllerListener(holder.sdvRvItem, stringList.get(position), MyUtils.getScreenWidth(context)>>1, context);
     }
 
     @Override
