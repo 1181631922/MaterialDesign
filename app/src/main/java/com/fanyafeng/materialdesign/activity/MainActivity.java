@@ -70,6 +70,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestStagger:
                 startActivity(new Intent(this, StaggeredGridLayoutActivity.class));
                 break;
+            case R.id.btnTestBottomSheet:
+                startActivity(new Intent(this, BottomSheetActivity.class));
+                break;
         }
     }
 }

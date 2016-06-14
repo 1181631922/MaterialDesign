@@ -14,4 +14,5 @@
     <string name="title_activity_toolbar_exit_until_collapsed">ToolbarExitUntilCollapsedActivity
     </string>
     <string name="title_activity_staggered_grid_layout">StaggeredGridLayoutActivity</string>
+    <string name="title_activity_bottom_sheet">BottomSheetActivity</string>
 </resources>

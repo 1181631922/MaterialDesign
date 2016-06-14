@@ -56,6 +56,10 @@
         <activity
             android:name=".activity.StaggeredGridLayoutActivity"
             android:label="@string/title_activity_staggered_grid_layout"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BottomSheetActivity"
+            android:label="@string/title_activity_bottom_sheet"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
