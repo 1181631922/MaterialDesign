@@ -1,0 +1,42 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.fanyafeng.materialdesign.BaseActivity">
+
+
+    <item
+        android:id="@+id/collaspedActionSend"
+        android:icon="@drawable/send"
+        android:orderInCategory="100"
+        android:title="send"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/collasped1"
+                android:orderInCategory="100"
+                android:title="隐藏add" />
+            <item
+                android:id="@+id/collasped2"
+                android:orderInCategory="100"
+                android:title="显示add" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/collaspedActionAdd"
+        android:icon="@drawable/add"
+        android:orderInCategory="100"
+        android:title="add"
+        app:showAsAction="ifRoom">
+        <menu>
+            <item
+                android:id="@+id/collasped3"
+                android:orderInCategory="100"
+                android:title="隐藏send" />
+            <item
+                android:id="@+id/collasped4"
+                android:orderInCategory="100"
+                android:title="显示send" />
+        </menu>
+    </item>
+</menu>

@@ -24,7 +24,7 @@ public class TabLayoutActivity extends BaseActivity implements ViewPager.OnPageC
     private TabLayout layoutTab;
     private ViewPager viewpagerTab;
 
-    private String[] stringList = new String[]{"LinearLayout", "GridView", "ListView"};
+    private String[] stringList = new String[]{"LinearLayout", "GridView", "ListView", "LinearLayout", "StaggeredGridLayout"};
     private List<Fragment> fragmentList;
     private MyViewPagerAdapter myViewPagerAdapter;
 
@@ -49,7 +49,7 @@ public class TabLayoutActivity extends BaseActivity implements ViewPager.OnPageC
         layoutTab = (TabLayout) findViewById(R.id.layoutTab);
         viewpagerTab = (ViewPager) findViewById(R.id.viewpagerTab);
         fragmentList = new ArrayList<>();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             TabLayoutFragment tabLayoutFragment = new TabLayoutFragment();
             Bundle bundle = new Bundle();
             bundle.putString("flag", String.valueOf(i));

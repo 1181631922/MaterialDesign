@@ -25,9 +25,9 @@
             android:id="@+id/layoutTab"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:tabGravity="fill"
+            app:tabGravity="center"
             app:tabIndicatorColor="#0ddcff"
-            app:tabMode="fixed" />
+            app:tabMode="scrollable" />
 
     </android.support.design.widget.AppBarLayout>
 
