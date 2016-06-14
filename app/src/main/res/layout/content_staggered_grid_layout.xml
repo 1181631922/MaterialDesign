@@ -8,10 +8,10 @@
     tools:context="com.fanyafeng.materialdesign.activity.StaggeredGridLayoutActivity"
     tools:showIn="@layout/activity_staggered_grid_layout">
 
-    <!--<com.andview.refreshview.XRefreshView-->
-        <!--android:id="@+id/xrvStaggerRefresh"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
+        <!--<com.andview.refreshview.XRefreshView-->
+            <!--android:id="@+id/xrvStaggerRefresh"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent">-->
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rvStagger"
