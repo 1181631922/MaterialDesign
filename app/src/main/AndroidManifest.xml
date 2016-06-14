@@ -60,6 +60,10 @@
         <activity
             android:name=".activity.BottomSheetActivity"
             android:label="@string/title_activity_bottom_sheet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.V7WidgetActivity"
+            android:label="@string/title_activity_v7_widget"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
