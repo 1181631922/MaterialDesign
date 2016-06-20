@@ -73,6 +73,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestBottomSheet:
                 startActivity(new Intent(this, BottomSheetActivity.class));
                 break;
+            case R.id.btnToolbarViewpager:
+                startActivity(new Intent(this, StaggeredActivity.class));
+                break;
             case R.id.btnTestV7:
                 startActivity(new Intent(this, V7WidgetActivity.class));
                 break;
