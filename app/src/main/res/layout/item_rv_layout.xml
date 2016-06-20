@@ -14,10 +14,10 @@
     <!--app:viewAspectRatio="1.0"-->
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/sdvRvItem"
+        android:transitionName="SimpleDraweeView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:retryImageScaleType="fitXY"
-
         app:roundedCornerRadius="5dp" />
 
 </android.support.v7.widget.CardView>

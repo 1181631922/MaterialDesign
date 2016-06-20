@@ -23,7 +23,8 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/sdvStaggerTop"
+                android:transitionName="SimpleDraweeView"
+                android:id="@+id/sdvRvItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"

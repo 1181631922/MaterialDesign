@@ -19,8 +19,8 @@
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
-        <!-- app:tabMode="fixed" app:tabGravity="fill" 水平平均铺满-->
-        <!-- app:tabMode="center" app:tabGravity="fill" 水平居中铺满-->
+        <!-- app:tabMode="scrollable" app:tabGravity="fill" -->
+        <!-- app:tabMode="scrollable" app:tabGravity="center" 一共有四种组合,大家自己可以尝试一下-->
         <android.support.design.widget.TabLayout
             android:id="@+id/layoutTab"
             android:layout_width="match_parent"
