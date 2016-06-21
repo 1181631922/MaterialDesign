@@ -60,7 +60,6 @@ public class StaggeredActivity extends BaseActivity {
 
     private void initView() {
         staggerViewpager = (ViewPager) findViewById(R.id.staggerViewpager);
-        FitScreenUtil.FixScreenX(staggerViewpager, (int) (MyUtils.getScreenWidth(this) * 1.6024));
         fragmentList = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
             ViewPagerFragment viewPagerFragment = new ViewPagerFragment();
