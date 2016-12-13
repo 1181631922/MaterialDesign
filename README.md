@@ -12,9 +12,9 @@ android MaterialDesign 风格
 * [8.android material design之简单控件](http://blog.csdn.net/qq_23195583/article/details/51770475)
 
 # 3.以下是运行效果图
+![draglayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/draglayout.gif)
 ![demo](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/demo.gif)
 ![BottomSheet.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/BottomSheet.gif)
-![draglayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/draglayout.gif)
 ![edittext.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/edittext.gif)
 ![snackbar.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/snackbar.gif)
 ![tablayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/tablayout.gif)
