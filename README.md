@@ -1,7 +1,7 @@
-# MaterialDesign
+# 1.MaterialDesign
 android MaterialDesign 风格
 
-# CSDN博客文章
+# 2.CSDN博客文章
 * [1.android material design之Toolbar](http://blog.csdn.net/qq_23195583/article/details/51673959)
 * [2.android material design之Snackbar](http://blog.csdn.net/qq_23195583/article/details/51679630)
 * [3.android material design之DrawerLayout，NavigationView](http://blog.csdn.net/qq_23195583/article/details/51682112)
@@ -11,3 +11,14 @@ android MaterialDesign 风格
 * [7.android material design之toolbar，ExitUntilCollapsed](http://blog.csdn.net/qq_23195583/article/details/51768257)
 * [8.android material design之简单控件](http://blog.csdn.net/qq_23195583/article/details/51770475)
 
+# 3.以下是运行效果图
+![demo](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/demo.gif)
+![BottomSheet.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/BottomSheet.gif)
+![draglayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/draglayout.gif)
+![edittext.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/edittext.gif)
+![snackbar.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/snackbar.gif)
+![tablayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/tablayout.gif)
+![toolbar+viewpager.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/toolbar+viewpager.gif)
+![toolbar.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/toolbar.gif)
+![toolbarenter.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/toolbarenter.gif)
+![v7.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/v7.gif)
