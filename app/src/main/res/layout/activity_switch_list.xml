@@ -13,8 +13,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         app:popupTheme="@style/AppTheme.PopupOverlay" />
-    <!-- app:tabMode="scrollable" app:tabGravity="fill" -->
-    <!-- app:tabMode="scrollable" app:tabGravity="center" 一共有四种组合,大家自己可以尝试一下-->
+
 
     <com.fanyafeng.materialdesign.view.StickyNavLayout
         android:id="@+id/layoutRoot"
@@ -27,17 +26,19 @@
             android:id="@+id/id_stickynavlayout_topview"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/cardview_dark_background">
+            android:background="@color/colorAccent">
 
         </RelativeLayout>
 
-
+        <!-- app:tabMode="scrollable" app:tabGravity="fill" -->
+        <!-- app:tabMode="fixed" app:tabGravity="center" 一共有四种组合,大家自己可以尝试一下-->
         <android.support.design.widget.TabLayout
             android:id="@+id/id_stickynavlayout_indicator"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@color/colorAccent"
-            app:tabGravity="center"
+            android:layout_height="50dp"
+            android:background="?attr/colorPrimary"
+            app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
+            app:tabGravity="fill"
             app:tabIndicatorColor="#0ddcff"
             app:tabMode="scrollable" />
 

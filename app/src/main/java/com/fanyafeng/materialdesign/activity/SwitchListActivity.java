@@ -1,5 +1,6 @@
 package com.fanyafeng.materialdesign.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -26,7 +27,9 @@ public class SwitchListActivity extends BaseActivity implements ViewPager.OnPage
     private TabLayout layoutTab;
     private ViewPager viewpagerTab;
 
-    private String[] stringList = new String[]{"LinearLayout", "GridView", "ListView", "LinearLayout", "StaggeredGridLayout"};
+    private String[] stringList = new String[]{"LinearLayout", "GridView", "ListView"
+            , "LinearLayout", "StaggeredGridLayout"
+    };
     private List<Fragment> fragmentList;
     private MyViewPagerAdapter myViewPagerAdapter;
 
@@ -43,15 +46,18 @@ public class SwitchListActivity extends BaseActivity implements ViewPager.OnPage
 
     private void initView() {
         layoutTab = (TabLayout) findViewById(R.id.id_stickynavlayout_indicator);
+        layoutTab.setTabTextColors(Color.WHITE,Color.GRAY);
+
         viewpagerTab = (ViewPager) findViewById(R.id.id_stickynavlayout_viewpager);
         fragmentList = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < stringList.length; i++) {
             TabLayoutFragment tabLayoutFragment = new TabLayoutFragment();
             Bundle bundle = new Bundle();
             bundle.putString("flag", String.valueOf(i));
             tabLayoutFragment.setArguments(bundle);
             fragmentList.add(tabLayoutFragment);
         }
+
     }
 
     private void initData() {
@@ -63,6 +69,7 @@ public class SwitchListActivity extends BaseActivity implements ViewPager.OnPage
 //        layoutTab.setTabMode(TabLayout.MODE_SCROLLABLE);
         layoutTab.setupWithViewPager(viewpagerTab);
         layoutTab.setTabsFromPagerAdapter(myViewPagerAdapter);
+//        layoutTab.getTabAt(3).select();初始position
     }
 
     @Override
@@ -72,6 +79,7 @@ public class SwitchListActivity extends BaseActivity implements ViewPager.OnPage
 
     @Override
     public void onPageSelected(int position) {
+        if (toolbar!=null)
         toolbar.setTitle(stringList[position]);
     }
 
