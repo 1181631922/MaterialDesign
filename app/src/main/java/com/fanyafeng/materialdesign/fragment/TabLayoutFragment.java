@@ -48,7 +48,7 @@ public class TabLayoutFragment extends Fragment {
     private RVAdapter rvAdapter;
     private List<String> stringList;
 
-    private XRefreshView xrvTabViewRefresh;
+//    private XRefreshView xrvTabViewRefresh;
     private RecyclerView rvTabView;
 
 
@@ -100,10 +100,10 @@ public class TabLayoutFragment extends Fragment {
     }
 
     private void initView() {
-        xrvTabViewRefresh = (XRefreshView) view.findViewById(R.id.xrvTabViewRefresh);
-        xrvTabViewRefresh.setPullRefreshEnable(false);
-        xrvTabViewRefresh.setPullLoadEnable(false);
-        xrvTabViewRefresh.setMoveForHorizontal(true);
+//        xrvTabViewRefresh = (XRefreshView) view.findViewById(R.id.xrvTabViewRefresh);
+//        xrvTabViewRefresh.setPullRefreshEnable(false);
+//        xrvTabViewRefresh.setPullLoadEnable(false);
+//        xrvTabViewRefresh.setMoveForHorizontal(true);
         rvTabView = (RecyclerView) view.findViewById(R.id.rvTabView);
         rvTabView.setHasFixedSize(true);
         switch (mParam1) {

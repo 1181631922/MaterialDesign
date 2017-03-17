@@ -79,6 +79,12 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestV7:
                 startActivity(new Intent(this, V7WidgetActivity.class));
                 break;
+            case R.id.btnTestSwitchList:
+                startActivity(new Intent(this, SwitchListActivity.class));
+                break;
+            case R.id.btnNest:
+                startActivity(new Intent(this, NestActivity.class));
+                break;
         }
     }
 }

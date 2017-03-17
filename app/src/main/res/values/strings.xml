@@ -17,4 +17,6 @@
     <string name="title_activity_bottom_sheet">BottomSheetActivity</string>
     <string name="title_activity_v7_widget">V7WidgetActivity</string>
     <string name="title_activity_staggered">StaggeredActivity</string>
+    <string name="title_activity_switch_list">SwitchListActivity</string>
+    <string name="title_activity_nest">NestActivity</string>
 </resources>
