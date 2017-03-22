@@ -32,8 +32,8 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class TabLayoutFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+    private final static String TAG = "TabLayoutFragment";
+
     private static final String ARG_PARAM1 = "flag";
     private static final String ARG_PARAM2 = "param2";
 
@@ -48,8 +48,18 @@ public class TabLayoutFragment extends Fragment {
     private RVAdapter rvAdapter;
     private List<String> stringList;
 
-//    private XRefreshView xrvTabViewRefresh;
+    //        private XRefreshView xrvTabViewRefresh;
     private RecyclerView rvTabView;
+
+    public TabLayoutCallBack tabLayoutCallBack;
+
+    public void setTabLayoutCallBack(TabLayoutCallBack tabLayoutCallBack) {
+        this.tabLayoutCallBack = tabLayoutCallBack;
+    }
+
+    public interface TabLayoutCallBack {
+        void callBack(String tabPosition, int totalSize, int firstPosition, int lastPosition);
+    }
 
 
     public TabLayoutFragment() {
@@ -104,6 +114,8 @@ public class TabLayoutFragment extends Fragment {
 //        xrvTabViewRefresh.setPullRefreshEnable(false);
 //        xrvTabViewRefresh.setPullLoadEnable(false);
 //        xrvTabViewRefresh.setMoveForHorizontal(true);
+//        xrvTabViewRefresh.setMoveHeadWhenDisablePullRefresh(false);
+
         rvTabView = (RecyclerView) view.findViewById(R.id.rvTabView);
         rvTabView.setHasFixedSize(true);
         switch (mParam1) {
@@ -131,7 +143,37 @@ public class TabLayoutFragment extends Fragment {
     }
 
     private void initData() {
+        rvTabView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                Log.d(TAG, "recyclerview state:" + newState);//when recyclerView stop scroll the newState==0
+                if (newState == 0) {
+                    if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
+                        int lastVisiblePosition = ((GridLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
+                        Log.d(TAG, "total position:" + MaterialDesignConstant.imageList.length);
+                        int firstVisiblePosition = ((GridLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
+                        Log.d(TAG, "last visible position:" + lastVisiblePosition + ",first visible position:" + firstVisiblePosition);
+                        if (tabLayoutCallBack != null) {
+                            tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstVisiblePosition, lastVisiblePosition);
+                        }
+                    } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+                        int lastVisiblePosition = ((LinearLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
+                        Log.d(TAG, "total position:" + MaterialDesignConstant.imageList.length);
+                        int firstVisiblePosition = ((LinearLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
+                        Log.d(TAG, "last visible position:" + lastVisiblePosition + ",first visible position:" + firstVisiblePosition);
+                        if (tabLayoutCallBack != null) {
+                            tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstVisiblePosition, lastVisiblePosition);
+                        }
+                    }
+                }
+            }
 
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
     }
 
 }

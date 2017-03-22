@@ -10,7 +10,20 @@ import android.widget.ScrollView;
  * Created by fanyafeng on 2015/12/16,0016.
  */
 public class MyScrollView extends ScrollView {
+
+    private static final String TAG = "MyScrollView";
+
     private OnScrollListener onScrollListener;
+
+    private MyScrollView myScrollView;
+
+    public MyScrollView getMyScrollView() {
+        return myScrollView;
+    }
+
+    public void setMyScrollView(MyScrollView myScrollView) {
+        this.myScrollView = myScrollView;
+    }
 
     public MyScrollView(Context context) {
         super(context);
@@ -47,7 +60,18 @@ public class MyScrollView extends ScrollView {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        Log.d("onInterceptTouchEvent", "我来拦截手势");
+        if (myScrollView != null) {
+            switch (ev.getAction()) {
+                case MotionEvent.ACTION_MOVE:
+                    Log.d(TAG, "手势拦截：MotionEvent.ACTION_MOVE");
+                    myScrollView.requestDisallowInterceptTouchEvent(true);
+                    break;
+            }
+        }
+
+
         return super.onInterceptTouchEvent(ev);
     }
+
+
 }

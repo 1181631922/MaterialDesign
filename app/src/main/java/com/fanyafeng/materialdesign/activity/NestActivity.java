@@ -35,18 +35,20 @@ public class NestActivity extends BaseActivity {
     private void initView() {
         layoutRoot = (MyScrollView) findViewById(R.id.layoutRoot);
         layoutChild = (MyScrollView) findViewById(R.id.layoutChild);
-        layoutRoot.setOnScrollListener(new MyScrollView.OnScrollListener() {
-            @Override
-            public void OnScroll(int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                Log.d("NestActivity", "高度：" + DpPxConvert.dip2px(NestActivity.this, 200f));
-                Log.d("NestActivity", "scrollX:" + scrollX + ",scrollY:" + scrollY);
-                if (scrollY >= DpPxConvert.dip2px(NestActivity.this, 200f)) {//子scroll监听手势，处理滑动
-//                    layoutRoot.dispatchTouchEvent();
-                } else {
-
-                }
-            }
-        });
+        layoutRoot.setMyScrollView(layoutChild);
+//        layoutRoot.setOnScrollListener(new MyScrollView.OnScrollListener() {
+//            @Override
+//            public void OnScroll(int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+////                Log.d("NestActivity", "高度：" + DpPxConvert.dip2px(NestActivity.this, 200f));
+////                Log.d("NestActivity", "scrollX:" + scrollX + ",scrollY:" + scrollY);
+//                if (scrollY >= DpPxConvert.dip2px(NestActivity.this, 200f)) {//子scroll监听手势，处理滑动
+////                    layoutRoot.dispatchTouchEvent();
+//                    layoutRoot.setMyScrollView(layoutChild);
+//                } else {
+//
+//                }
+//            }
+//        });
     }
 
     //初始化数据
