@@ -14,7 +14,7 @@ android MaterialDesign 风格
 # 3.以下是运行效果图
 偷了一下懒结果图片大小不一样，有图片是之前写博客没有删除的，o(╯□╰)o<p>
 ![scrollRecycleview.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/scrollRecycleview.gif)
-![offset.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/offset.gif)
+![offset.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/offset.gif)<br>
 ![draglayout.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/draglayout.gif)
 ![toolbarenter.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/toolbarenter.gif)
 ![snackbar.gif](https://github.com/1181631922/MaterialDesign/blob/master/ScreenShots/snackbar.gif)
