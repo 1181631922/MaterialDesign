@@ -82,6 +82,11 @@ public class SwitchListActivity extends BaseActivity implements ViewPager.OnPage
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
     private void initData() {
         myViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), stringList, fragmentList);
         viewpagerTab.setAdapter(myViewPagerAdapter);

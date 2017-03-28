@@ -6,6 +6,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -13,14 +14,17 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.OverScroller;
+import android.widget.Toast;
 
 import com.fanyafeng.materialdesign.R;
+import com.fanyafeng.materialdesign.util.DpPxConvert;
 
 
 public class StickyNavLayout extends LinearLayout implements NestedScrollingParent {
     private static final String TAG = "StickyNavLayout";
 
     private boolean canPullDown = true;
+
 
     public boolean isCanPullDown() {
         return canPullDown;
@@ -29,6 +33,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     public void setCanPullDown(boolean canPullDown) {
         this.canPullDown = canPullDown;
         if (!canPullDown && mTopViewHeight != 0) {
+            mDeltaY = mTopViewHeight;
             scrollTo(0, mTopViewHeight);
         }
     }
@@ -91,6 +96,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
     private VelocityTracker mVelocityTracker;
     private int mTouchSlop;
     private int mMaximumVelocity, mMinimumVelocity;
+    private GestureDetector mGestureDetector;
 
     public StickyNavLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -100,8 +106,17 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         mTouchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
         mMaximumVelocity = ViewConfiguration.get(context).getScaledMaximumFlingVelocity();
         mMinimumVelocity = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
+
+        mGestureDetector = new GestureDetector(context, new TopViewGestureListener());
+        mGestureDetector.setIsLongpressEnabled(false);
+
+        Log.d(TAG, "getTop:" + this.getTop());
+
     }
 
+    int mLastY = 0;
+    int mDeltaY = 0;
+    boolean isMoveUp;
 
     @Override
     protected void onFinishInflate() {
@@ -112,25 +127,47 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                mGestureDetector.onTouchEvent(event);
                 switch (event.getAction()) {
-                    case MotionEvent.ACTION_MOVE:
-//                        Log.d(TAG, "point MotionEvent.ACTION_MOVE;now y point:" + event.getY());
-                        break;
                     case MotionEvent.ACTION_DOWN:
                         y = event.getY();
-//                        Log.d(TAG, "point MotionEvent.ACTION_DOWN; now y point:" + event.getY());
+                        Log.d(TAG, "point MotionEvent.ACTION_DOWN; now y point:" + event.getY());
+                        mLastY = (int) event.getRawY();
+                        Log.d(TAG, "mLastY:" + mLastY);
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        int currentY = (int) event.getRawY();
+//                        Log.d(TAG, "Raw Y:" + event.getRawY());
+//                        Log.d(TAG, "point MotionEvent.ACTION_MOVE;now y point:" + event.getY());
+                        int deltaY = currentY - mLastY;
+                        Log.d(TAG, "deltaY:" + deltaY);
+//                        mDeltaY = mDeltaY - deltaY;
+                        if (mDeltaY < 0) {
+                            mDeltaY = 0;
+                        }
+                        if (mDeltaY > mTopViewHeight) {
+                            mDeltaY = mTopViewHeight;
+                        }
+                        if (mDeltaY >= 0 && mDeltaY <= mTopViewHeight) {
+//                            scrollTo(0, mDeltaY);
+
+                        }
+
+                        Log.d(TAG, "total offset:" + mDeltaY);
+
+//                        mLastY = (int) event.getRawY();
                         break;
                     case MotionEvent.ACTION_UP:
-//                        Log.d(TAG, "point MotionEvent.ACTION_UP; now y point:" + event.getY());
+                        Log.d(TAG, "point MotionEvent.ACTION_UP; now y point:" + event.getY());
                         if (event.getY() - y < 0) {
-                            scrollTo(0, mTopViewHeight);
-                        } else {
-                            scrollTo(0, 0);
+                            Log.d(TAG, "MotionEvent.ACTION_UP <0");//move up
+                            isMoveUp = true;
+                        } else if (event.getY() - y > 0) {
+                            Log.d(TAG, "MotionEvent.ACTION_UP >=0");//move down
+                            isMoveUp = false;
                         }
                         break;
                 }
-
-
                 return false;
             }
         });
@@ -141,6 +178,35 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
                     "id_stickynavlayout_viewpager show used by ViewPager !");
         }
         mViewPager = (ViewPager) view;
+    }
+
+    class TopViewGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent ev) {
+            return true;
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            mDeltaY = (int) (mDeltaY - e2.getY() + e1.getY());
+            scrollTo(0, mDeltaY);
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            Log.d(TAG, "e2.y-e1.y:" + (e2.getY() - e1.getY()));
+            if (e2.getY() - e1.getY() < 0) {
+                scrollTo(0, mTopViewHeight);
+            }
+            return true;
+        }
+
+        @Override
+        public boolean onDown(MotionEvent ev) {
+            Log.d(TAG, "ontouch onDown");
+            return true;
+        }
     }
 
     @Override
@@ -172,24 +238,32 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         if (y < 0) {
             y = 0;
         }
+        Log.d(TAG, "mTopViewHeight:" + mTopViewHeight);
+
 
         if (canPullDown) {
             if (y > mTopViewHeight) {
                 y = mTopViewHeight;
+                mDeltaY = y;
             }
             if (y != getScrollY()) {
+                mDeltaY = y;
                 super.scrollTo(x, y);
             }
         } else {
             if (y > mTopViewHeight) {
                 y = mTopViewHeight;
+                mDeltaY = y;
                 super.scrollTo(x, y);
             } else {
                 y = mTopViewHeight;
+                mDeltaY = y;
                 super.scrollTo(x, y);
             }
         }
+        Log.d(TAG, "scroll total offset:" + mDeltaY);
     }
+
 
     @Override
     public void computeScroll() {
