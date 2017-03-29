@@ -158,14 +158,14 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
 //                        mLastY = (int) event.getRawY();
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.d(TAG, "point MotionEvent.ACTION_UP; now y point:" + event.getY());
-                        if (event.getY() - y < 0) {
-                            Log.d(TAG, "MotionEvent.ACTION_UP <0");//move up
-                            isMoveUp = true;
-                        } else if (event.getY() - y > 0) {
-                            Log.d(TAG, "MotionEvent.ACTION_UP >=0");//move down
-                            isMoveUp = false;
-                        }
+//                        Log.d(TAG, "point MotionEvent.ACTION_UP; now y point:" + event.getY());
+//                        if (event.getY() - y < 0) {
+//                            Log.d(TAG, "MotionEvent.ACTION_UP <0");//move up
+//                            isMoveUp = true;
+//                        } else if (event.getY() - y > 0) {
+//                            Log.d(TAG, "MotionEvent.ACTION_UP >=0");//move down
+//                            isMoveUp = false;
+//                        }
                         break;
                 }
                 return false;
@@ -196,7 +196,7 @@ public class StickyNavLayout extends LinearLayout implements NestedScrollingPare
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             Log.d(TAG, "e2.y-e1.y:" + (e2.getY() - e1.getY()));
-            if (e2.getY() - e1.getY() < 0) {
+            if (e2.getY() - e1.getY() == 0 || e2.getY() - e1.getY() < 0) {
                 scrollTo(0, mTopViewHeight);
             }
             return true;
