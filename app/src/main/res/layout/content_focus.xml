@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.fanyafeng.materialdesign.activity.FocusActivity"
+    tools:showIn="@layout/activity_focus">
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.fanyafeng.materialdesign.view.FocusView
+            android:id="@+id/focus_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+        <RelativeLayout
+            android:id="@+id/local_focus_rl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal">
+
+            <ImageButton
+                android:id="@+id/local_tv"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="30dp"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_ad1"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/local_tv"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_cate"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/local_ad1"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_weather"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="30dp"
+                android:layout_toRightOf="@id/local_cate"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_ad2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/local_cate"
+                android:layout_margin="2dp"
+                android:layout_toRightOf="@id/local_ad1"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_news"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/local_cate"
+                android:layout_margin="2dp"
+                android:layout_toRightOf="@id/local_ad2"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md"/>
+
+            <ImageButton
+                android:id="@+id/local_app_store"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/local_ad2"
+                android:layout_margin="2dp"
+                android:layout_toRightOf="@id/local_ad1"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md"/>
+
+            <ImageButton
+                android:id="@+id/local_video"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_below="@id/local_ad2"
+                android:layout_margin="2dp"
+                android:layout_toRightOf="@id/local_app_store"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md" />
+
+            <ImageButton
+                android:id="@+id/local_tour"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:focusable="true"
+                android:scaleType="centerCrop"
+                android:background="@drawable/md"
+                android:layout_above="@+id/local_app_store"
+                android:layout_alignLeft="@+id/local_tv"
+                android:layout_alignStart="@+id/local_tv" />
+        </RelativeLayout>
+    </FrameLayout>
+</LinearLayout>

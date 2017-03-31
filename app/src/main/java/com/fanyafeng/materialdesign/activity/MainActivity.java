@@ -85,6 +85,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnNest:
                 startActivity(new Intent(this, NestActivity.class));
                 break;
+            case R.id.btnTestFocusToBig:
+                startActivity(new Intent(this, FocusActivity.class));
+                break;
         }
     }
 }
