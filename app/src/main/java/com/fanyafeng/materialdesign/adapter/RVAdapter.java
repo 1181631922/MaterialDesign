@@ -3,9 +3,12 @@ package com.fanyafeng.materialdesign.adapter;
 import android.content.Context;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -19,8 +22,19 @@ import java.util.List;
  * Created by 365rili on 16/6/14.
  */
 public class RVAdapter extends BaseRecyclerAdapter<RVAdapter.ViewHolder> {
+    private final static String TAG = "RVAdapter";
     private Context context;
     private List<String> stringList;
+
+    private RecyclerView recyclerView;
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
 
     public RVAdapter(Context context, List<String> stringList) {
         this.context = context;
@@ -51,7 +65,7 @@ public class RVAdapter extends BaseRecyclerAdapter<RVAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position, boolean isItem) {
+    public void onBindViewHolder(final ViewHolder holder, final int position, boolean isItem) {
 //        holder.sdvRvItem.setImageURI(Uri.parse(stringList.get(position)));
 //        holder.sdvRvItem.set
         ControllerListenerUtil.setControllerListener(holder.sdvRvItem, stringList.get(position), MyUtils.getScreenWidth(context) >> 1, context);
@@ -70,6 +84,44 @@ public class RVAdapter extends BaseRecyclerAdapter<RVAdapter.ViewHolder> {
                 }
             });
         }
+
+        holder.itemView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                float currentX = 0;
+                float currentY = 0;
+                Log.d(TAG, "holder itemView onTouch");
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        currentX = event.getX();
+                        currentY = event.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        if (Math.abs(event.getY() - currentY) < Math.abs(event.getX() - currentX)) {
+
+//                            holder.itemView.getParent().requestDisallowInterceptTouchEvent(true);
+                            return true;
+                        } else {
+
+                            return false;
+                        }
+                    case MotionEvent.ACTION_UP:
+                        if (Math.abs(event.getY() - currentY) < Math.abs(event.getX() - currentX)) {
+
+//                            holder.itemView.getParent().requestDisallowInterceptTouchEvent(true);
+                            return true;
+                        } else {
+//                            holder.itemView.getParent().requestDisallowInterceptTouchEvent(false);
+                            return false;
+                        }
+                }
+//                recyclerView.requestDisallowInterceptTouchEvent(false);
+//                holder.sdvRvItem.getParent().requestDisallowInterceptTouchEvent(true);
+                return false;
+            }
+        });
+
+
     }
 
     @Override

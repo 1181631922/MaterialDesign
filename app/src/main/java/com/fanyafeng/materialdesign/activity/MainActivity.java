@@ -88,6 +88,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnTestFocusToBig:
                 startActivity(new Intent(this, FocusActivity.class));
                 break;
+            case R.id.btnSnapHelper:
+                startActivity(new Intent(this, SnapHelperActivity.class));
+                break;
         }
     }
 }

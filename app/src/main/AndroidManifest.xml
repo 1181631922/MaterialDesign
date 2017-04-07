@@ -83,6 +83,11 @@
             android:name=".activity.FocusActivity"
             android:label="@string/title_activity_focus"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SnapHelperActivity"
+            android:label="@string/title_activity_snap_helper"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

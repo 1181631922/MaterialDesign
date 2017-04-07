@@ -33,4 +33,8 @@
         <item name="android:textColor">@color/colorAccent</item>
     </style>
 
+    <style name="ButtonNormal" parent="@android:style/Widget.Button" >
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
 </resources>

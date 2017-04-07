@@ -20,4 +20,5 @@
     <string name="title_activity_switch_list">SwitchListActivity</string>
     <string name="title_activity_nest">NestActivity</string>
     <string name="title_activity_focus">FocusActivity</string>
+    <string name="title_activity_snap_helper">SnapHelperActivity</string>
 </resources>

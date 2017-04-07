@@ -2,6 +2,7 @@ package com.fanyafeng.materialdesign.fragment;
 
 import android.content.Context;
 import android.net.Uri;
+import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.DragEvent;
+import android.view.GestureDetector;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -19,6 +23,7 @@ import com.andview.refreshview.XRefreshView;
 import com.fanyafeng.materialdesign.Constant.MaterialDesignConstant;
 import com.fanyafeng.materialdesign.R;
 import com.fanyafeng.materialdesign.adapter.RVAdapter;
+import com.fanyafeng.materialdesign.view.StickyNavLayout;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -50,6 +55,9 @@ public class TabLayoutFragment extends Fragment {
 
     //        private XRefreshView xrvTabViewRefresh;
     private RecyclerView rvTabView;
+    private GestureDetector mGestureDetector;
+    private final int SCROLL = 0;
+    private final int FLING = 1;
 
     public TabLayoutCallBack tabLayoutCallBack;
 
@@ -104,7 +112,6 @@ public class TabLayoutFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.d("TabLayout", mParam1);
         initView();
         initData();
     }
@@ -115,6 +122,8 @@ public class TabLayoutFragment extends Fragment {
 //        xrvTabViewRefresh.setPullLoadEnable(false);
 //        xrvTabViewRefresh.setMoveForHorizontal(true);
 //        xrvTabViewRefresh.setMoveHeadWhenDisablePullRefresh(false);
+
+        mGestureDetector = new GestureDetector(getActivity(), new RecycleViewGestureListener());
 
         rvTabView = (RecyclerView) view.findViewById(R.id.rvTabView);
         rvTabView.setHasFixedSize(true);
@@ -138,42 +147,130 @@ public class TabLayoutFragment extends Fragment {
         rvTabView.setLayoutManager(layoutManager);
         stringList = new ArrayList<>();
         stringList = Arrays.asList(MaterialDesignConstant.imageList);
+//        stringList = Arrays.asList("http://img1.imgtn.bdimg.com/it/u=753665811,2183009962&fm=21&gp=0.jpg");
         rvAdapter = new RVAdapter(getActivity(), stringList);
         rvTabView.setAdapter(rvAdapter);
     }
 
+    int rvState = -1;
+
+    int currentY;
+    int lastY;
+
     private void initData() {
+        rvTabView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        currentY = (int) event.getY();
+                        break;
+                    case MotionEvent.ACTION_MOVE:
+                        lastY = (int) event.getY();
+                        break;
+                    case MotionEvent.ACTION_UP:
+
+                        if (rvTabView.getLayoutManager() instanceof GridLayoutManager) {
+                            if (((GridLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition() <= 0) {
+                                if (lastY - currentY > 0) {
+                                    if (tabLayoutCallBack != null) {
+                                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, ((GridLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition(), ((GridLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition());
+                                    }
+                                }
+                            }
+                            if (((GridLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition() == MaterialDesignConstant.imageList.length - 1) {
+                                if (lastY - currentY < 0) {
+                                    Log.d(TAG, "y-currentY:小于0");
+                                    if (tabLayoutCallBack != null) {
+                                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, ((GridLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition(), ((GridLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition());
+                                    }
+                                }
+                            }
+                        } else if (rvTabView.getLayoutManager() instanceof LinearLayoutManager) {
+                            if (((LinearLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition() <= 0) {
+                                if (lastY - currentY > 0) {
+                                    if (tabLayoutCallBack != null) {
+                                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, ((LinearLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition(), ((LinearLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition());
+                                    }
+                                }
+                            }
+                            if (((LinearLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition() == MaterialDesignConstant.imageList.length - 1) {
+                                if (lastY - currentY < 0) {
+                                    Log.d(TAG, "y-currentY:小于0");
+                                    if (tabLayoutCallBack != null) {
+                                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, ((LinearLayoutManager) (rvTabView.getLayoutManager())).findFirstCompletelyVisibleItemPosition(), ((LinearLayoutManager) (rvTabView.getLayoutManager())).findLastCompletelyVisibleItemPosition());
+                                    }
+                                }
+                            }
+                        }
+
+
+                        break;
+                }
+                return false;
+            }
+        });
+
+
         rvTabView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            /**
+             * Callback method to be invoked when RecyclerView's scroll state changes.
+             * fuck!!! do not tell me clearly begin
+             * The RecyclerView whose scroll state has changed.
+             * The updated scroll state. One of {RecyclerView.SCROLL_STATE_IDLE},
+             *                     {RecyclerView.SCROLL_STATE_DRAGGING} or {RecyclerView.SCROLL_STATE_SETTLING}.
+             */
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
                 Log.d(TAG, "recyclerview state:" + newState);//when recyclerView stop scroll the newState==0
-                if (newState == 0) {
-                    if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
-                        int lastVisiblePosition = ((GridLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
-                        Log.d(TAG, "total position:" + MaterialDesignConstant.imageList.length);
-                        int firstVisiblePosition = ((GridLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
-                        Log.d(TAG, "last visible position:" + lastVisiblePosition + ",first visible position:" + firstVisiblePosition);
-                        if (tabLayoutCallBack != null) {
-                            tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstVisiblePosition, lastVisiblePosition);
-                        }
-                    } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-                        int lastVisiblePosition = ((LinearLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
-                        Log.d(TAG, "total position:" + MaterialDesignConstant.imageList.length);
-                        int firstVisiblePosition = ((LinearLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
-                        Log.d(TAG, "last visible position:" + lastVisiblePosition + ",first visible position:" + firstVisiblePosition);
-                        if (tabLayoutCallBack != null) {
-                            tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstVisiblePosition, lastVisiblePosition);
-                        }
-                    }
+                if (recyclerView.getLayoutManager() instanceof GridLayoutManager) {
+                    ((GridLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
+                    ((GridLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
+//                    if (tabLayoutCallBack != null) {
+//                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstPosition, lastPosition);
+//                    }
+                } else if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+                    ((LinearLayoutManager) (recyclerView.getLayoutManager())).findLastCompletelyVisibleItemPosition();
+                    ((LinearLayoutManager) (recyclerView.getLayoutManager())).findFirstCompletelyVisibleItemPosition();
+//                    if (tabLayoutCallBack != null) {
+//                        tabLayoutCallBack.callBack(mParam1, MaterialDesignConstant.imageList.length, firstPosition, lastPosition);
+//                    }
                 }
             }
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+                Log.d(TAG, "onScrolled dx:" + dx + ",dy:" + dy);
             }
         });
+    }
+
+    class RecycleViewGestureListener extends GestureDetector.SimpleOnGestureListener {
+        @Override
+        public boolean onSingleTapConfirmed(MotionEvent ev) {
+            return true;
+        }
+
+        @Override
+        public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+            Log.d(TAG, "GestureDetector: onScroll,distanceY:" + distanceY);
+            rvState = SCROLL;
+            return true;
+        }
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+//            Log.d(TAG, "GestureDetector: onFling");
+            rvState = FLING;
+            return true;
+        }
+
+        @Override
+        public boolean onDown(MotionEvent ev) {
+            return true;
+        }
     }
 
 }

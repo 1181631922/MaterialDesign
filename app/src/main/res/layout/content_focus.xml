@@ -32,9 +32,9 @@
                 android:layout_marginLeft="2dp"
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="30dp"
+                android:background="@drawable/md"
                 android:focusable="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_ad1"
@@ -44,9 +44,9 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/local_tv"
+                android:background="@drawable/md"
                 android:focusable="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_cate"
@@ -56,9 +56,9 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/local_ad1"
+                android:background="@drawable/md"
                 android:focusable="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_weather"
@@ -68,9 +68,9 @@
                 android:layout_marginRight="2dp"
                 android:layout_marginTop="30dp"
                 android:layout_toRightOf="@id/local_cate"
+                android:background="@drawable/md"
                 android:focusable="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_ad2"
@@ -79,8 +79,8 @@
                 android:layout_below="@id/local_cate"
                 android:layout_margin="2dp"
                 android:layout_toRightOf="@id/local_ad1"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:background="@drawable/md"
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_news"
@@ -89,8 +89,8 @@
                 android:layout_below="@id/local_cate"
                 android:layout_margin="2dp"
                 android:layout_toRightOf="@id/local_ad2"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md"/>
+                android:background="@drawable/md"
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_app_store"
@@ -99,8 +99,8 @@
                 android:layout_below="@id/local_ad2"
                 android:layout_margin="2dp"
                 android:layout_toRightOf="@id/local_ad1"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md"/>
+                android:background="@drawable/md"
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_video"
@@ -109,19 +109,19 @@
                 android:layout_below="@id/local_ad2"
                 android:layout_margin="2dp"
                 android:layout_toRightOf="@id/local_app_store"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md" />
+                android:background="@drawable/md"
+                android:scaleType="centerCrop" />
 
             <ImageButton
                 android:id="@+id/local_tour"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:focusable="true"
-                android:scaleType="centerCrop"
-                android:background="@drawable/md"
                 android:layout_above="@+id/local_app_store"
                 android:layout_alignLeft="@+id/local_tv"
-                android:layout_alignStart="@+id/local_tv" />
+                android:layout_alignStart="@+id/local_tv"
+                android:background="@drawable/md"
+                android:focusable="true"
+                android:scaleType="centerCrop" />
         </RelativeLayout>
     </FrameLayout>
 </LinearLayout>
