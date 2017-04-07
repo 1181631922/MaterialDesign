@@ -70,7 +70,7 @@ public class SnapHelperActivity extends BaseActivity {
     private void initData() {
 
         try {
-            InputStream inputStream = getAssets().open("subject.xml");
+            InputStream inputStream = getAssets().open("subject.xm");
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             Document document = builder.parse(inputStream);
