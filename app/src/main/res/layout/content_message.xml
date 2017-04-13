@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.fanyafeng.materialdesign.view.StickyNavigationLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.fanyafeng.materialdesign.activity.MessageActivity"
+    tools:showIn="@layout/activity_message">
+
+    <RelativeLayout
+        android:id="@+id/id_stickynavlayout_topview"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/colorAccent">
+
+    </RelativeLayout>
+
+    <!-- app:tabMode="scrollable" app:tabGravity="fill" -->
+    <!-- app:tabMode="fixed" app:tabGravity="center" 一共有四种组合,大家自己可以尝试一下-->
+    <android.support.design.widget.TabLayout
+        android:id="@+id/id_stickynavlayout_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="?attr/colorPrimary"
+        app:tabGravity="center"
+        app:tabIndicatorColor="#0ddcff"
+        app:tabMode="fixed"
+        app:tabTextAppearance="@style/MyTabLayoutTextAppearance" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_stickynavlayout_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    </android.support.v4.view.ViewPager>
+
+
+</com.fanyafeng.materialdesign.view.StickyNavigationLayout>

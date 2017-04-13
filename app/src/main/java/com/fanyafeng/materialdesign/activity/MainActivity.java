@@ -83,13 +83,16 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, SwitchListActivity.class));
                 break;
             case R.id.btnNest:
-                startActivity(new Intent(this, NestActivity.class));
+//                startActivity(new Intent(this, NestActivity.class));
                 break;
             case R.id.btnTestFocusToBig:
                 startActivity(new Intent(this, FocusActivity.class));
                 break;
             case R.id.btnSnapHelper:
                 startActivity(new Intent(this, SnapHelperActivity.class));
+                break;
+            case R.id.btnMessage:
+                startActivity(new Intent(this,MessageActivity.class));
                 break;
         }
     }

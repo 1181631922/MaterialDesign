@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<info>
+    <ctype>CIK</ctype>
+    <description>---CN TEST 2.26--</description>
+    <softwareVersion>2.26.50R</softwareVersion>
+    <time>2016-11-21</time>
+    <updateFile>http://10.10.31.142:8080/ip_upgrade.img</updateFile>
+    <updateFileMd5>37be2f25f261a39d1a0859f031db910c</updateFileMd5>
+    <updateFileSize>235847760</updateFileSize>
+    <updateFlag>0</updateFlag>
+    <updateMethod>0</updateMethod>
+</info>
