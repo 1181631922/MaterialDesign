@@ -25,11 +25,13 @@
             tools:ignore="NewApi">
 
             <Button
+                android:id="@+id/btnBehavior"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:hapticFeedbackEnabled="true"
-                android:text="嵌套滑动"
+                android:text="滑动带动view"
+                android:onClick="onClick"
                 android:textColor="?attr/colorPrimaryDark"
                 android:textSize="@dimen/activity_horizontal_margin" />
         </RelativeLayout>
@@ -38,7 +40,6 @@
             android:id="@+id/btnNest"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/transparent"
             android:hapticFeedbackEnabled="true"
             android:onClick="onClick"
             android:text="嵌套滑动"

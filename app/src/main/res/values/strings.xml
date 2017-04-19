@@ -22,4 +22,5 @@
     <string name="title_activity_focus">FocusActivity</string>
     <string name="title_activity_snap_helper">SnapHelperActivity</string>
     <string name="title_activity_message">MessageActivity</string>
+    <string name="title_activity_behavior">BehaviorActivity</string>
 </resources>

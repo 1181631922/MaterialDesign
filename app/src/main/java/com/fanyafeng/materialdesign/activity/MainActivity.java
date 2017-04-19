@@ -94,6 +94,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btnMessage:
                 startActivity(new Intent(this,MessageActivity.class));
                 break;
+            case R.id.btnBehavior:
+                startActivity(new Intent(this,BehaviorActivity.class));
+                break;
         }
     }
 }

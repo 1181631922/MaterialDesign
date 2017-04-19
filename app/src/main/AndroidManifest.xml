@@ -93,6 +93,11 @@
             android:name=".activity.MessageActivity"
             android:label="@string/title_activity_message"
             android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BehaviorActivity"
+            android:label="@string/title_activity_behavior"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
